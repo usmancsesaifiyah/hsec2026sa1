@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Multi-Grade CS & Tech Revision Portal (Grades 7-10)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./Usman Logo.jpg" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+            }
+        }
+
+        .glow-box {
+            animation: pulse-glow 3s infinite;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-300">
+
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchSection('home')">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-extrabold text-xl shadow-lg">
+                    ⚡
+                </div>
+                <div>
+                    <h1
+                        class="text-lg font-bold bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">
+                        UshiVerse Academy</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Comprehensive Grades 7-10 Revision
+                        Hub</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <button onclick="switchSection('home')" id="nav-home"
+                    class="px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 shadow-sm">Home
+                    & Overview</button>
+                <button onclick="openGradeModal('G7')" id="nav-G7"
+                    class="px-4 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300">Grade
+                    7 🚀</button>
+                <button onclick="openGradeModal('G8')" id="nav-G8"
+                    class="px-4 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300">Grade
+                    8 🧠</button>
+                <button onclick="openGradeModal('G9')" id="nav-G9"
+                    class="px-4 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300">Grade
+                    9 📊</button>
+                <button onclick="openGradeModal('G10')" id="nav-G10"
+                    class="px-4 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300">Grade
+                    10 🤖</button>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleDarkMode()"
+                    class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:scale-105 transition-transform"
+                    aria-label="Toggle Theme">
+                    🌓
+                </button>
+                <button onclick="openSandboxModal()"
+                    class="hidden sm:flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl text-sm font-semibold shadow-md hover:opacity-95 transition-all">
+                    <span>💻 Code Playground</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- HOME SECTION -->
+        <section id="section-home" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 py-8">
+                <span
+                    class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">Interactive
+                    Academic Hub</span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Master Computer Science & Technology with
+                    <span class="bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">Immersive
+                        Learning</span></h2>
+                <p class="text-slate-600 dark:text-slate-400 text-lg">Select your grade below or explore mixed
+                    conceptual challenges, interactive simulators, code debuggers, and self-assessment quizzes crafted
+                    directly from your curriculum!</p>
+            </div>
+
+            <!-- Grade Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Grade 7 Card -->
+                <div onclick="openGradeModal('G7')"
+                    class="glass-card rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1.5 border-t-4 border-t-indigo-500 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-2xl mb-4 font-bold">
+                            7</div>
+                        <h3 class="text-xl font-bold mb-2">Grade 7: Foundations & Python</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Troubleshooting, Digital Footprints,
+                            Algorithms, Python Basics, Loops, Turtle Graphics & Gen-Z Tech Case Study.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">Password Protected</span>
+                        <span
+                            class="text-sm font-bold bg-indigo-50 dark:bg-indigo-950 px-3 py-1 rounded-lg text-indigo-600">Enter
+                            &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Grade 8 Card -->
+                <div onclick="openGradeModal('G8')"
+                    class="glass-card rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1.5 border-t-4 border-t-violet-500 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-2xl mb-4 font-bold">
+                            8</div>
+                        <h3 class="text-xl font-bold mb-2">Grade 8: Networks & Data</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Client-Server, Cloud Computing, IoT
+                            Sensors, Binary/Decimal Conversions, Space/Medical CS, and IPO pipelines.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <span class="text-xs font-bold text-violet-600 dark:text-violet-400">Password Protected</span>
+                        <span
+                            class="text-sm font-bold bg-violet-50 dark:bg-violet-950 px-3 py-1 rounded-lg text-violet-600">Enter
+                            &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Grade 9 Card -->
+                <div onclick="openGradeModal('G9')"
+                    class="glass-card rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1.5 border-t-4 border-t-pink-500 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-900/50 flex items-center justify-center text-pink-600 dark:text-pink-400 text-2xl mb-4 font-bold">
+                            9</div>
+                        <h3 class="text-xl font-bold mb-2">Grade 9: Data Analytics & Web</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Data Collection, Business Sales
+                            Analysis, Profit Margins, Excel Basics, and Introduction to HTML/CSS Web Structures.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <span class="text-xs font-bold text-pink-600 dark:text-pink-400">Password Protected</span>
+                        <span
+                            class="text-sm font-bold bg-pink-50 dark:bg-pink-950 px-3 py-1 rounded-lg text-pink-600">Enter
+                            &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Grade 10 Card -->
+                <div onclick="openGradeModal('G10')"
+                    class="glass-card rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1.5 border-t-4 border-t-amber-500 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-4 font-bold">
+                            10</div>
+                        <h3 class="text-xl font-bold mb-2">Grade 10: AI, AR/VR & Advanced Web</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Neural Networks, Machine Learning, AR
+                            vs VR, AI Environmental Impacts, Cybersecurity & Filmmaking Key Elements.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400">Password Protected</span>
+                        <span
+                            class="text-sm font-bold bg-amber-50 dark:bg-amber-950 px-3 py-1 rounded-lg text-amber-600">Enter
+                            &rarr;</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Quick Tools Ribbon -->
+            <div
+                class="glass-card rounded-3xl p-8 shadow-xl mt-12 bg-gradient-to-r from-indigo-900/10 via-violet-900/10 to-pink-900/10">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold">⚡ Quick Practice Sandbox</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Test your code logic, check binary
+                            conversions instantly, or try out debugging challenges right inside the browser!</p>
+                    </div>
+                    <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div onclick="openSandboxModal('binary')"
+                            class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-indigo-500 transition-all">
+                            <h4 class="font-bold text-indigo-600 dark:text-indigo-400 mb-1">🔢 Binary & Decimal
+                                Converter</h4>
+                            <p class="text-xs text-slate-500">Convert numbers instantly between Base 2 and Base 10 with
+                                step breakdown.</p>
+                        </div>
+                        <div onclick="openSandboxModal('profit')"
+                            class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-indigo-500 transition-all">
+                            <h4 class="font-bold text-indigo-600 dark:text-indigo-400 mb-1">📊 Business Profit Margin
+                                Calc</h4>
+                            <p class="text-xs text-slate-500">Grade 9 business sales analysis tool for calculating
+                                profit percentages and total revenue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRADE CONTENT DYNAMIC CONTAINER -->
+        <section id="section-grade-view" class="hidden space-y-8">
+            <!-- Breadcrumb & Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-center space-x-4">
+                    <button onclick="switchSection('home')"
+                        class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-sm font-bold hover:bg-slate-300 transition">&larr;
+                        Back to Home</button>
+                    <div>
+                        <span id="grade-badge"
+                            class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">Grade
+                            Section</span>
+                        <h2 id="grade-title" class="text-3xl font-extrabold mt-1">Curriculum Content</h2>
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <button onclick="triggerGradeQuiz()"
+                        class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm shadow hover:opacity-95">Take
+                        Grade Quiz 📝</button>
+                </div>
+            </div>
+
+            <!-- Grade Content Body -->
+            <div id="grade-content-container" class="space-y-6">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Password Modal -->
+    <div id="password-modal"
+        class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="glass-card max-w-md w-full rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-6 transform transition-all">
+            <div class="text-center space-y-2">
+                <div id="modal-grade-icon"
+                    class="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 mx-auto flex items-center justify-center text-indigo-600 text-2xl font-black shadow-inner">
+                    🔒</div>
+                <h3 id="modal-grade-title" class="text-2xl font-bold">Enter Grade Password</h3>
+                <p class="text-sm text-slate-500">Please enter the secure authorization password provided for this
+                    grade.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Access
+                        Password</label>
+                    <input type="password" id="password-input" placeholder="Enter password..."
+                        class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
+                        onkeypress="if(event.key === 'Enter') verifyPassword()">
+                </div>
+                <div id="password-error-msg"
+                    class="hidden p-3 rounded-xl bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-300 text-xs font-semibold">
+                    <!-- Error text populated dynamically -->
+                </div>
+            </div>
+
+            <div class="flex space-x-3">
+                <button onclick="closePasswordModal()"
+                    class="flex-1 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 font-bold text-sm hover:bg-slate-300 transition">Cancel</button>
+                <button onclick="verifyPassword()"
+                    class="flex-1 py-3 rounded-xl bg-indigo-600 text-white font-bold text-sm shadow-lg hover:bg-indigo-700 transition">Verify
+                    & Unlock</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sandbox / Code Playground Modal -->
+    <div id="sandbox-modal"
+        class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div
+            class="glass-card max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl">💻</span>
+                    <h3 class="text-xl font-bold">Interactive Code & Tools Playground</h3>
+                </div>
+                <button onclick="closeSandboxModal()"
+                    class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-sm font-bold">✕
+                    Close</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Sandbox Tool Selector -->
+                <div class="space-y-2">
+                    <button onclick="switchSandboxTab('python')" id="sandbox-tab-python"
+                        class="w-full text-left px-4 py-3 rounded-xl font-bold text-sm transition bg-indigo-50 dark:bg-indigo-950 text-indigo-600">🐍
+                        Python Even/Odd & Pattern</button>
+                    <button onclick="switchSandboxTab('binary')" id="sandbox-tab-binary"
+                        class="w-full text-left px-4 py-3 rounded-xl font-bold text-sm transition hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300">🔢
+                        Binary Converter (Grade 8)</button>
+                    <button onclick="switchSandboxTab('profit')" id="sandbox-tab-profit"
+                        class="w-full text-left px-4 py-3 rounded-xl font-bold text-sm transition hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300">📊
+                        Sales & Profit Calc (Grade 9)</button>
+                </div>
+
+                <!-- Sandbox Content Area -->
+                <div class="md:col-span-2 space-y-4">
+                    <!-- Python Sandbox -->
+                    <div id="sandbox-pane-python" class="space-y-4">
+                        <h4 class="font-bold text-lg">Python Code Snippet Simulator</h4>
+                        <p class="text-xs text-slate-500">Test a sample Grade 7 Python script to check even/odd numbers
+                            or print star grids!</p>
+                        <div class="bg-slate-900 text-slate-200 p-4 rounded-xl code-font text-xs overflow-x-auto">
+                            <pre><code># Check Even or Odd in Python
+number = int(input("Enter a number: "))
+if number % 2 == 0:
+    print(number, "is Even")
+else:
+    print(number, "is Odd")</code></pre>
+                        </div>
+                        <div class="flex space-x-2 items-center">
+                            <input type="number" id="py-test-num" value="7"
+                                class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm w-32">
+                            <button onclick="runPythonTest()"
+                                class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow">Run Code
+                                🚀</button>
+                        </div>
+                        <div id="py-test-output"
+                            class="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 font-mono text-xs border border-slate-200 dark:border-slate-800 text-indigo-500 font-bold">
+                            Output will appear here...
+                        </div>
+                    </div>
+
+                    <!-- Binary Sandbox -->
+                    <div id="sandbox-pane-binary" class="hidden space-y-4">
+                        <h4 class="font-bold text-lg">Binary to Decimal & Decimal to Binary</h4>
+                        <p class="text-xs text-slate-500">Grade 8 Conversion Tool (e.g. Decimal 12 = Binary 1100)</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold mb-1">Decimal Number</label>
+                                <input type="number" id="bin-dec-input" value="12"
+                                    class="w-full px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm"
+                                    oninput="convertDecimalToBinary()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold mb-1">Binary Result</label>
+                                <div id="bin-result"
+                                    class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm font-mono font-bold text-indigo-600">
+                                    1100
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profit Sandbox -->
+                    <div id="sandbox-pane-profit" class="hidden space-y-4">
+                        <h4 class="font-bold text-lg">Grade 9 Business Sales & Profit Margin Analyzer</h4>
+                        <p class="text-xs text-slate-500">Calculate item profit margins and bulk sales revenue.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold mb-1">Cost Price (CP)</label>
+                                <input type="number" id="prof-cp" value="100"
+                                    class="w-full px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold mb-1">Selling Price (SP)</label>
+                                <input type="number" id="prof-sp" value="120"
+                                    class="w-full px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm">
+                            </div>
+                        </div>
+                        <button onclick="calculateProfitMargin()"
+                            class="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-bold shadow">Calculate
+                            Profit Margin 📊</button>
+                        <div id="prof-result"
+                            class="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-xs font-bold border border-slate-200 dark:border-slate-800 text-pink-600">
+                            Profit Margin: 16.67% (Profit: 20)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz-modal"
+        class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div
+            class="glass-card max-w-2xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+                <div>
+                    <span id="quiz-grade-tag" class="text-xs font-bold uppercase tracking-wider text-indigo-600">Grade
+                        Assessment</span>
+                    <h3 id="quiz-title" class="text-2xl font-bold">Interactive Knowledge Check</h3>
+                </div>
+                <button onclick="closeQuizModal()"
+                    class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-sm font-bold">✕
+                    Close</button>
+            </div>
+
+            <div id="quiz-body" class="space-y-4">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password Mapping
+        const gradePasswords = {
+            'G7': { pass: 'FatherTeacher', name: 'Grade 7: Foundations & Python' },
+            'G8': { pass: 'USP', name: 'Grade 8: Networks, Data & Binary' },
+            'G9': { pass: 'SportsDedo', name: 'Grade 9: Data Analytics & HTML/CSS' },
+            'G10': { pass: 'AttendTheClass', name: 'Grade 10: AI, AR/VR & Advanced Web' }
+        };
+
+        let activeGradeAttempt = null;
+
+        function openGradeModal(gradeKey) {
+            activeGradeAttempt = gradeKey;
+            const data = gradePasswords[gradeKey];
+            document.getElementById('modal-grade-title').innerText = `Unlock ${data.name}`;
+            document.getElementById('password-input').value = '';
+            document.getElementById('password-error-msg').classList.add('hidden');
+            document.getElementById('password-modal').classList.remove('hidden');
+            document.getElementById('password-modal').classList.add('flex');
+        }
+
+        function closePasswordModal() {
+            document.getElementById('password-modal').classList.remove('flex');
+            document.getElementById('password-modal').classList.add('hidden');
+        }
+
+        function verifyPassword() {
+            const enteredPass = document.getElementById('password-input').value;
+            const correctPass = gradePasswords[activeGradeAttempt].pass;
+
+
+            // NEW VERSION
+
+            if (enteredPass === correctPass) {
+                closePasswordModal();
+                loadGradeContent(activeGradeAttempt);
+            } else {
+                const errorDiv = document.getElementById('password-error-msg');
+
+                const phoneNumber = "9199291124267";
+
+                const whatsappMessage = encodeURIComponent(
+                    `سلام Sir, I am unable to access Grade ${activeGradeAttempt} in the CS Revision Portal. I am getting Error 401: Unauthorized Access. Please help me with the class password.`
+                );
+
+                const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+                const callLink = `tel:+${phoneNumber}`;
+
+                errorDiv.innerHTML = `
+        <div style="
+            background: #fff1f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 18px;
+            color: #991b1b;
+            text-align: center;
+        ">
+            <div style="font-size: 18px; font-weight: bold;">
+                ⚠️ Error Code 401: Unauthorized Access
+            </div>
+
+            <p style="margin: 10px 0;">
+                Password mismatch for
+                <strong>${activeGradeAttempt}</strong>.
+                Please contact your instructor on WhatsApp
+                or call directly.
+            </p>
+
+            <div style="
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            ">
+                <a href="${whatsappLink}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="
+                       background: #25D366;
+                       color: white;
+                       padding: 12px 20px;
+                       border-radius: 8px;
+                       text-decoration: none;
+                       font-weight: bold;
+                       display: inline-block;
+                   ">
+                    💬 Contact on WhatsApp
+                </a>
+
+                <a href="${callLink}"
+                   style="
+                       background: #2563eb;
+                       color: white;
+                       padding: 12px 20px;
+                       border-radius: 8px;
+                       text-decoration: none;
+                       font-weight: bold;
+                       display: inline-block;
+                   ">
+                    📞 Call Instructor
+                </a>
+            </div>
+
+            <p style="
+                font-size: 13px;
+                margin-top: 14px;
+                color: #7f1d1d;
+            ">
+                Instructor: +91 9929114267 ( ER.USMAN-Qureshi.CSE, CSR-Faculty SSSSDPR )
+            </p>
+        </div>
+    `;
+
+                errorDiv.classList.remove('hidden');
+            }
+            // OLDER VERSION 
+            // if (enteredPass === correctPass) {
+            //     closePasswordModal();
+            //     loadGradeContent(activeGradeAttempt);
+            // } else {
+            //     const errorDiv = document.getElementById('password-error-msg');
+            //     errorDiv.innerHTML = `⚠️ <strong>Error Code 401: Unauthorized Access</strong><br>Password mismatch for ${activeGradeAttempt}. Please contact instructor on WhatsApp: <strong>+91 9929114267</strong> or call directly.`;
+            //     errorDiv.classList.remove('hidden');
+            // }
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function switchSection(sectionId) {
+            document.getElementById('section-home').classList.add('hidden');
+            document.getElementById('section-grade-view').classList.add('hidden');
+
+            if (sectionId === 'home') {
+                document.getElementById('section-home').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Detailed Curriculum Data & Explanations with Mixed Topic Explorations
+        const curriculumData = {
+            'G7': {
+                title: 'Grade 7: Technology Foundations, Python & Gen-Z Protest Case Study',
+                badge: 'Grade 7',
+                content: `
+                    <div class="space-y-6">
+                        <div class="glass-card rounded-3xl p-6 shadow-lg border-l-4 border-l-indigo-500">
+                            <h3 class="text-2xl font-bold mb-3">🔥 Featured Special Analysis: Recent Gen-Z Protests & Technology</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                                Modern youth-led movements ("Gen-Z Protests") rely heavily on decentralized digital tools. Technology shaped these movements by providing instant encrypted messaging (Signal, Telegram), live-streaming platforms for transparent documentation (TikTok, Instagram Live), and crowdsourced mapping tools to coordinate peaceful gatherings. While social media algorithms accelerate mobilization, they also present risks of misinformation and digital surveillance.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-indigo-600">🛠️ Troubleshooting & Common Computer Problems</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400">Troubleshooting is the systematic process of identifying, diagnosing, and resolving technical issues in hardware or software.</p>
+                                <ul class="list-disc pl-5 text-xs space-y-1 text-slate-600 dark:text-slate-400">
+                                    <li><strong>Computer won't turn on:</strong> Power cable or PSU failure.</li>
+                                    <li><strong>Freezing/Crashing:</strong> RAM overload or overheating.</li>
+                                    <li><strong>No Internet:</strong> Router DNS or ISP outage.</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-violet-600">🐍 Python Programming Fundamentals</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400">Python is widely accepted due to its readable syntax (resembling English), vast libraries, and versatility in AI, web dev, and automation.</p>
+                                <div class="bg-slate-900 text-slate-200 p-3 rounded-xl code-font text-xs">
+                                    <code># Print vs print() & Variables<br>name = "Ushi"<br>print("Hello", name)</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                            <h4 class="font-bold text-lg text-pink-600">🎮 Online Game Crash Scenario & Debug Logic</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                If your phone keeps crashing while playing an online game, the problem is likely due to low RAM, background app exhaustion, overheating, or unstable Wi-Fi latency. <strong>Fix it by:</strong> Clearing background tasks, updating the game app, restarting the device, and ensuring stable Wi-Fi connection.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            'G8': {
+                title: 'Grade 8: Networks, Cloud Computing, IoT & Number Systems',
+                badge: 'Grade 8',
+                content: `
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-violet-600">🌐 Client-Server & Cloud Computing</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">The <strong>Client</strong> requests info; the <strong>Server</strong> fulfills it. Cloud Computing allows remote file storage accessible anywhere via internet.</p>
+                            </div>
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-indigo-600">🤖 IoT Sensors & Actuators</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">IoT devices use <strong>sensors</strong> (temperature, light) to gather physical data and <strong>actuators</strong> to take physical action.</p>
+                            </div>
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-pink-600">🔢 Binary & Decimal Number Systems</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Computers represent all data using binary electrical states (0 and 1). For example, Decimal 12 = Binary 1100.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                            <h4 class="font-bold text-lg text-emerald-600">📦 IPO Pipeline Example (How Gemini / ChatGPT Works)</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <strong>Input:</strong> User types a prompt into the chatbox.<br>
+                                <strong>Process:</strong> The server receives tokens, passes them through neural network transformer models, and calculates probabilistic next-word completions.<br>
+                                <strong>Output:</strong> The generated answer is streamed back to the user interface.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            'G9': {
+                title: 'Grade 9: Data Analytics, Sales Profit Margins & Web Structures',
+                badge: 'Grade 9',
+                content: `
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-pink-600">📊 Business Sales Analysis & Profit</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">
+                                    Analyzing business sales helps organizations track performance, identify top-selling products, and make data-driven decisions.<br>
+                                    <strong>Profit Margin Example:</strong> Bought an item at 100, sold at 120.<br>
+                                    Profit = SP - CP = 120 - 100 = 20.<br>
+                                    Profit Margin % = (Profit / CP) * 100 = (20 / 100) * 100 = <strong>16.67%</strong>.
+                                </p>
+                            </div>
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-indigo-600">🌐 HTML & CSS Web Fundamentals</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">
+                                    HTML structures web pages using semantic tags like <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code>, and <code>&lt;img&gt;</code>. The <code>&lt;!DOCTYPE html&gt;</code> declaration tells the browser to render the document in modern HTML5 standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'G10': {
+                title: 'Grade 10: Artificial Intelligence, Neural Networks, AR/VR & Cybersecurity',
+                badge: 'Grade 10',
+                content: `
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-amber-600">🤖 AI, ML & Neural Networks</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300"><strong>AI</strong> simulates human intelligence. <strong>ML</strong> allows machines to learn from data. <strong>Neural Networks</strong> are computing systems inspired by biological neural networks in the human brain.</p>
+                            </div>
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-violet-600">🥽 AR vs VR Technology</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300"><strong>Augmented Reality (AR)</strong> overlays digital elements onto the real world (e.g., Pokemon GO). <strong>Virtual Reality (VR)</strong> immerses the user in a fully computer-generated virtual environment.</p>
+                            </div>
+                            <div class="glass-card rounded-3xl p-6 shadow-lg space-y-3">
+                                <h4 class="font-bold text-lg text-emerald-600">🛡️ Cybersecurity & Phishing</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Cybersecurity protects systems and networks from digital attacks. <strong>Phishing</strong> is a social engineering attack where attackers impersonate legitimate entities to steal credentials.</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function loadGradeContent(gradeKey) {
+            switchSection('grade-view');
+            document.getElementById('section-grade-view').classList.remove('hidden');
+            const data = curriculumData[gradeKey];
+            document.getElementById('grade-badge').innerText = data.badge;
+            document.getElementById('grade-title').innerText = data.title;
+            document.getElementById('grade-content-container').innerHTML = data.content;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            activeGradeAttempt = gradeKey;
+        }
+
+        function openSandboxModal(tab = 'python') {
+            document.getElementById('sandbox-modal').classList.remove('hidden');
+            document.getElementById('sandbox-modal').classList.add('flex');
+            switchSandboxTab(tab);
+        }
+
+        function closeSandboxModal() {
+            document.getElementById('sandbox-modal').classList.remove('flex');
+            document.getElementById('sandbox-modal').classList.add('hidden');
+        }
+
+        function switchSandboxTab(tab) {
+            ['python', 'binary', 'profit'].forEach(t => {
+                document.getElementById(`sandbox-pane-${t}`).classList.add('hidden');
+                document.getElementById(`sandbox-tab-${t}`).className = 'w-full text-left px-4 py-3 rounded-xl font-bold text-sm transition hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300';
+            });
+            document.getElementById(`sandbox-pane-${tab}`).classList.remove('hidden');
+            document.getElementById(`sandbox-tab-${tab}`).className = 'w-full text-left px-4 py-3 rounded-xl font-bold text-sm transition bg-indigo-50 dark:bg-indigo-950 text-indigo-600';
+        }
+
+        function runPythonTest() {
+            const num = parseInt(document.getElementById('py-test-num').value);
+            const isEven = num % 2 === 0;
+            document.getElementById('py-test-output').innerText = `>> Input: ${num}\n>> Result: ${num} is ${isEven ? 'EVEN 🟢' : 'ODD 🟠'}`;
+        }
+
+        function convertDecimalToBinary() {
+            const dec = parseInt(document.getElementById('bin-dec-input').value) || 0;
+            const bin = dec.toString(2);
+            document.getElementById('bin-result').innerText = bin;
+        }
+
+        function calculateProfitMargin() {
+            const cp = parseFloat(document.getElementById('prof-cp').value) || 0;
+            const sp = parseFloat(document.getElementById('prof-sp').value) || 0;
+            const profit = sp - cp;
+            const margin = cp > 0 ? ((profit / cp) * 100).toFixed(2) : 0;
+            document.getElementById('prof-result').innerText = `Profit: ${profit} | Profit Margin: ${margin}%`;
+        }
+
+        // Quiz Data per Grade
+        const gradeQuizzes = {
+            'G7': {
+                question: 'What is the primary purpose of Troubleshooting in Computer Science?',
+                options: ['Writing Python code', 'Systematically diagnosing and fixing technical problems', 'Creating HTML tables', 'Calculating binary numbers'],
+                correct: 1
+            },
+            'G8': {
+                question: 'What is the binary equivalent of decimal number 12?',
+                options: ['1001', '1010', '1100', '1110'],
+                correct: 2
+            },
+            'G9': {
+                question: 'If an item costs 100 and is sold for 120, what is the profit margin percentage?',
+                options: ['10%', '16.67%', '20%', '25%'],
+                correct: 1
+            },
+            'G10': {
+                question: 'What technology overlays digital elements onto the real physical world?',
+                options: ['Virtual Reality (VR)', 'Augmented Reality (AR)', 'Neural Networks', 'Client-Server'],
+                correct: 1
+            }
+        };
+
+        function triggerGradeQuiz() {
+            const q = gradeQuizzes[activeGradeAttempt] || gradeQuizzes['G7'];
+            document.getElementById('quiz-grade-tag').innerText = `Assessment for ${activeGradeAttempt}`;
+            document.getElementById('quiz-title').innerText = q.question;
+
+            let html = '<div class="space-y-3">';
+            q.options.forEach((opt, idx) => {
+                html += `<button onclick="checkQuizAnswer(${idx}, ${q.correct})" class="w-full text-left p-4 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-indigo-950 font-semibold text-sm transition border border-slate-200 dark:border-slate-800">${String.fromCharCode(65 + idx)}. ${opt}</button>`;
+            });
+            html += '</div><div id="quiz-feedback" class="font-bold text-sm mt-4"></div>';
+
+            document.getElementById('quiz-body').innerHTML = html;
+            document.getElementById('quiz-modal').classList.remove('hidden');
+            document.getElementById('quiz-modal').classList.add('flex');
+        }
+
+        function checkQuizAnswer(selected, correct) {
+            const fb = document.getElementById('quiz-feedback');
+            if (selected === correct) {
+                fb.innerHTML = '✅ Correct! Excellent understanding of the concept.';
+                fb.className = 'font-bold text-sm mt-4 text-emerald-600';
+            } else {
+                fb.innerHTML = '❌ Incorrect. Review the detailed curriculum notes above and try again!';
+                fb.className = 'font-bold text-sm mt-4 text-red-600';
+            }
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').classList.remove('flex');
+            document.getElementById('quiz-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
